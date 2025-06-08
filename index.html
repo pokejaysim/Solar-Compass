@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Solar Compass - Optimal Solar Panel Positioning</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Solar Compass</h1>
+            <p class="subtitle">Position your solar panels perfectly</p>
+        </header>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Location:</span>
+                <span id="location-status" class="status-value">Detecting...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Time:</span>
+                <span id="current-time" class="status-value">--:--</span>
+            </div>
+        </div>
+
+        <div class="solar-info">
+            <div class="info-card">
+                <h3>Sun Position</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Azimuth</span>
+                        <span id="sun-azimuth" class="info-value">---°</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Elevation</span>
+                        <span id="sun-elevation" class="info-value">---°</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Optimal Panel Settings</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Direction</span>
+                        <span id="optimal-direction" class="info-value">---°</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tilt Angle</span>
+                        <span id="optimal-tilt" class="info-value">---°</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="compass-container">
+            <div class="compass-wrapper">
+                <div id="compass" class="compass">
+                    <div class="compass-rose">
+                        <div class="cardinal-point north">N</div>
+                        <div class="cardinal-point east">E</div>
+                        <div class="cardinal-point south">S</div>
+                        <div class="cardinal-point west">W</div>
+                        <div class="degree-mark" style="transform: rotate(30deg)">30</div>
+                        <div class="degree-mark" style="transform: rotate(60deg)">60</div>
+                        <div class="degree-mark" style="transform: rotate(120deg)">120</div>
+                        <div class="degree-mark" style="transform: rotate(150deg)">150</div>
+                        <div class="degree-mark" style="transform: rotate(210deg)">210</div>
+                        <div class="degree-mark" style="transform: rotate(240deg)">240</div>
+                        <div class="degree-mark" style="transform: rotate(300deg)">300</div>
+                        <div class="degree-mark" style="transform: rotate(330deg)">330</div>
+                    </div>
+                    <div class="target-indicator"></div>
+                    <div class="compass-center"></div>
+                    <div class="direction-arrow"></div>
+                </div>
+                <div class="compass-heading">
+                    <span id="current-heading" class="heading-value">---°</span>
+                    <span class="heading-label">Current Heading</span>
+                </div>
+            </div>
+            
+            <div class="alignment-status" id="alignment-status">
+                <span class="alignment-icon">⟲</span>
+                <span class="alignment-text">Turn to align</span>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Use</h3>
+            <ol>
+                <li>Hold your device flat and level</li>
+                <li>Allow location and compass permissions when prompted</li>
+                <li>Rotate until the arrow points to the highlighted target</li>
+                <li>The target shows the optimal direction for your solar panels</li>
+            </ol>
+            <p class="calibration-note">
+                <strong>Calibration tip:</strong> If compass seems inaccurate, move your device in a figure-8 pattern.
+            </p>
+        </div>
+
+        <div class="error-message" id="error-message" style="display: none;">
+            <span class="error-icon">⚠️</span>
+            <span class="error-text"></span>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="solar-calculations.js"></script>
+    <script src="compass.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
